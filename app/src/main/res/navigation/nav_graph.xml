@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.android.wiki.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.android.wiki.overview.OverviewFragment"
+        android:label="overview_fragment"
+        tools:layout="@layout/overview_fragment" >
+        <action
+            android:id="@+id/action_overviewFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.android.wiki.detail.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.example.android.wiki.network.ModelProperty" />
+    </fragment>
+</navigation>

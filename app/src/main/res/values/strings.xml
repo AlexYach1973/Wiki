@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Rick &amp; Morty</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Start</string>
+
+<!--    Detail fragment-->
+    <string name="name">Name</string>
+    <string name="status">Status</string>
+    <string name="species">Species</string>
+    <string name="gender">Gender</string>
+</resources>
