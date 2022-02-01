@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{property.name}"
+            style="@style/TextViewProperties"
             tools:text="TextTextTextText"
             />
 

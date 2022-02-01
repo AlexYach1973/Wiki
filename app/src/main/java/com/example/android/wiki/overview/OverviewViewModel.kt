@@ -42,8 +42,11 @@ class OverviewViewModel : ViewModel() {
                 // создает и запускает сетевой вызов в фоновом потоке
                 _properties.value = MyApi.retrofitService.getProperties()
                 _status.value = MyApiStatus.DONE
+                Log.d("myLogs", "_properties.value.size()= " +
+                        _properties.value!!.size);
 
             } catch (e : Exception) {
+                Log.d("myLogs", "Exception: $e")
                 _status.value = MyApiStatus.ERROR
 
                 // Загружаем пустышку
