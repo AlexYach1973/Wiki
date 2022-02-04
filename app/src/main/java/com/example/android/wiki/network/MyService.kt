@@ -2,6 +2,7 @@ package com.example.android.wiki.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -28,12 +29,31 @@ private val retrofit = Retrofit.Builder()
 
 //  интерфейс, который определяет, как Retrofit взаимодействует с веб-сервером
 //  с помощью HTTP-запросов
+/*
+
 interface MyService {
     @GET("character/[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]")
     // Используем coroutines
 //    suspend fun getProperties(@Query("name") type: String): List<ModelProperty>
     suspend fun getProperties(): List<ModelProperty>
 }
+*/
+
+// Новый запрос
+/*
+interface MyService {
+    @GET("character")
+    suspend fun getProperties(): ModelResponse
+}
+*/
+
+
+// Новый запрос c RxJava
+interface MyService {
+    @GET("character")
+    fun getProperties(): Single<ModelResponse>
+}
+
 
 // инициализация службы Retrofit
 object MyApi {

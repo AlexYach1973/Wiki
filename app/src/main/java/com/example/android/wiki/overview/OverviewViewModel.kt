@@ -1,12 +1,16 @@
 package com.example.android.wiki.overview
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.android.wiki.R
 import com.example.android.wiki.network.ModelProperty
 import com.example.android.wiki.network.MyApi
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
 
 enum class MyApiStatus { LOADING, ERROR, DONE }
@@ -30,31 +34,62 @@ class OverviewViewModel : ViewModel() {
 
     // при инициализации, чтобы мы могли немедленно отобразить статус
     init {
-     getProperties()
+        getProperties()
     }
 
     // Получаем информацию из сервиса
-    private fun getProperties () {
+    @SuppressLint("CheckResult")
+    private fun getProperties() {
+
+        /**  Используем RxJava  */
+        val getModelResponse = MyApi.retrofitService.getProperties()
+        getModelResponse
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { it ->
+                    _properties.value = it.results
+                    _status.value = MyApiStatus.DONE
+                },
+                // onError
+                { error ->
+                    // Логируем ошибку
+                    Log.e("myLogs", error.toString())
+                })
+        /** *************** */
+
         // Используем Coroutine
-        viewModelScope.launch {
+       /* viewModelScope.launch {
             _status.value = MyApiStatus.LOADING
             try {
                 // создает и запускает сетевой вызов в фоновом потоке
+                *//*
                 _properties.value = MyApi.retrofitService.getProperties()
                 _status.value = MyApiStatus.DONE
                 Log.d("myLogs", "_properties.value.size()= " +
                         _properties.value!!.size);
+                *//*
+                *//*
+                 // Новый сетевой вызов
+                 val getModelResponse = MyApi.retrofitService.getProperties()
+             _properties.value = getModelResponse.results
+             _status.value = MyApiStatus.DONE
+             *//*
 
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 Log.d("myLogs", "Exception: $e")
                 _status.value = MyApiStatus.ERROR
 
                 // Загружаем пустышку
                 val defaultList = listOf(
-                    ModelProperty(1, "Ничего не загрузилось", "Alive",
-                        "Human","male"),
-                    ModelProperty(2, "Morty Smith", "Alive",
-                        "Human","male")
+                    ModelProperty(
+                        1, "Ничего не загрузилось", "Alive",
+                        "Human", "male"
+                    ),
+                    ModelProperty(
+                        2, "Morty Smith", "Alive",
+                        "Human", "male"
+                    )
                 )
                 _properties.value = defaultList
 
@@ -65,7 +100,7 @@ class OverviewViewModel : ViewModel() {
 
             }
         }
-
+*/
     }
 
     // метод, который устанавливает _ navigateToSelectedProperty для
