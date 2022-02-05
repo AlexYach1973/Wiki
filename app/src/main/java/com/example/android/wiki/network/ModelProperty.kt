@@ -13,8 +13,8 @@ data class ModelProperty (
     val name: String,
     val status: String,
     val species: String,
-    val gender: String)
-//    val image: String) //: Parcelable
+    val gender: String,
+    val image: String) //: Parcelable
     : Parcelable {
 
 }

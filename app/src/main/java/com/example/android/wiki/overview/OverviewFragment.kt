@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.android.wiki.databinding.OverviewFragmentBinding
@@ -26,7 +25,7 @@ class OverviewFragment : Fragment() {
 
         // Позволяет связывать данные для наблюдения LiveData с
         // жизненным циклом этого фрагмента
-        binding.lifecycleOwner = this;
+        binding.lifecycleOwner = this
 
         // Предоставление доступа привязки к OverviewViewModel
         binding.viewModelOverview = viewModelOverview
@@ -37,14 +36,13 @@ class OverviewFragment : Fragment() {
         })
 
         // Наблюдатель для навигации
-        viewModelOverview.navigateToSelectedProperty.observe(viewLifecycleOwner, {
+        viewModelOverview.navigateToSelectedProperty.observe(viewLifecycleOwner) {
             if (null != it) {
                 this.findNavController().navigate(
-                    OverviewFragmentDirections.actionOverviewFragmentToDetailFragment(it))
-
-//                viewModelOverview.displayPropertyDetailsComplete()
+                    OverviewFragmentDirections.actionOverviewFragmentToDetailFragment(it)
+                )
             }
-        })
+        }
 
         return binding.root
     }
