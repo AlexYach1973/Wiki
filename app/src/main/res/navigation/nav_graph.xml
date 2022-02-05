@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/startFragment"
         android:name="com.example.android.wiki.StartFragment"
-        android:label="fragment_start"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_startFragment_to_overviewFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/overviewFragment"
         android:name="com.example.android.wiki.overview.OverviewFragment"
-        android:label="overview_fragment"
+        android:label="@string/characters"
         tools:layout="@layout/overview_fragment" >
         <action
             android:id="@+id/action_overviewFragment_to_detailFragment"
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.android.wiki.detail.DetailFragment"
-        android:label="detail_fragment"
+        android:label="Details"
         tools:layout="@layout/detail_fragment" >
         <argument
             android:name="selectedProperty"

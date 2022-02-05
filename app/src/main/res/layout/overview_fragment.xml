@@ -14,14 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/gradient"
         tools:context="com.example.android.wiki.overview.OverviewFragment">
 
-        <TextView
+       <!-- <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Персонажи"
             android:gravity="center"
-            android:textSize="28sp"/>
+            android:textSize="28sp"/>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"

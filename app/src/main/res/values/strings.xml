@@ -3,6 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Start</string>
 
+    <string name="characters">Characters</string>
+
 <!--    Detail fragment-->
     <string name="name">Name</string>
     <string name="status">Status</string>

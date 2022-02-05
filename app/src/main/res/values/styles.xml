@@ -5,6 +5,7 @@
         <item name="android:textSize"> 22sp</item>
         <item name="android:textStyle"> bold</item>
         <item name="android:textColor"> @color/purple_200</item>
+        <item name="android:padding">8dp</item>
 
     </style>
 
@@ -13,6 +14,7 @@
         <item name="android:textStyle"> bold|italic</item>
         <item name="android:textColor"> @color/purple_700</item>
         <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
 
     </style>
 
