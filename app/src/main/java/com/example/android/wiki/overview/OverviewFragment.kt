@@ -30,7 +30,7 @@ class OverviewFragment : Fragment() {
         // Предоставление доступа привязки к OverviewViewModel
         binding.viewModelOverview = viewModelOverview
 
-        // Связь recyclerview с адаптером
+        // Связь recyclerview с адаптером (передаем нажатие на элемент)
         binding.recyclerview.adapter = MyAdapter(MyAdapter.OnClickListener{
             viewModelOverview.displayPropertyDetails(it)
         })

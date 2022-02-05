@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class OverviewViewModel : ViewModel() {
 
-    // Когда это LiveData изменяется на ненулевое значение, запускается навигация.
+    // запускается навигация с аргументом
     private val _navigateToSelectedProperty = MutableLiveData<ModelProperty>()
     val navigateToSelectedProperty: LiveData<ModelProperty>
         get() = _navigateToSelectedProperty
@@ -45,9 +45,6 @@ class OverviewViewModel : ViewModel() {
             .subscribe(
                 { it ->
                     _properties.value = it.results
-
-//                    Log.d("myLogs", "String URL img: " + it.results.toString())
-
                 },
                 { error ->
                     // Логируем ошибку
