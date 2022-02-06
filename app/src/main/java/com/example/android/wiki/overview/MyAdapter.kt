@@ -43,7 +43,6 @@ class MyAdapter(private val onClickListener: OnClickListener) :
         }
     }
 
-
     // Diffutil
     companion object DiffCallback : DiffUtil.ItemCallback<ModelProperty>() {
 

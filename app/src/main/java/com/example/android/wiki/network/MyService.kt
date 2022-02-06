@@ -18,42 +18,19 @@ private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
-// конструктор Retrofit для создания объекта Retrofit
+// Создание объекта Retrofit
 private val retrofit = Retrofit.Builder()
-    // Необходимо как минмум две вещи:
-    .baseUrl(BASE_URL) // первая
-//    .addConverterFactory(MoshiConverterFactory.create(moshi)) // Вторая
+    .baseUrl(BASE_URL)
+//    .addConverterFactory(MoshiConverterFactory.create(moshi))
     .addConverterFactory(GsonConverterFactory.create())
     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
     .build()
 
-//  интерфейс, который определяет, как Retrofit взаимодействует с веб-сервером
-//  с помощью HTTP-запросов
-/*
-
-interface MyService {
-    @GET("character/[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]")
-    // Используем coroutines
-//    suspend fun getProperties(@Query("name") type: String): List<ModelProperty>
-    suspend fun getProperties(): List<ModelProperty>
-}
-*/
-
-// Новый запрос
-/*
-interface MyService {
-    @GET("character")
-    suspend fun getProperties(): ModelResponse
-}
-*/
-
-
-// Новый запрос c RxJava
+// Интерфейс c использованием RxJava
 interface MyService {
     @GET("character")
     fun getProperties(): Single<ModelResponse>
 }
-
 
 // инициализация службы Retrofit
 object MyApi {

@@ -10,10 +10,6 @@ import com.example.android.wiki.databinding.DetailFragmentBinding
 
 class DetailFragment : Fragment() {
 
-//    private val viewModelDetail : DetailViewModel by lazy {
-//        ViewModelProvider(this)[DetailViewModel::class.java]
-//    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,10 +37,5 @@ class DetailFragment : Fragment() {
 
         return binding.root
     }
-
-
-
-
-
 
 }

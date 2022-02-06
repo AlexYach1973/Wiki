@@ -11,8 +11,6 @@ import com.example.android.wiki.databinding.OverviewFragmentBinding
 
 class OverviewFragment : Fragment() {
 
-
-//    private val viewModelOverview: OverviewViewModel by viewModels()
     private val viewModelOverview : OverviewViewModel by lazy {
     ViewModelProvider(this)[OverviewViewModel::class.java]
 }
