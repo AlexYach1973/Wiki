@@ -17,12 +17,6 @@
         android:background="@drawable/gradient"
         tools:context="com.example.android.wiki.overview.OverviewFragment">
 
-       <!-- <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Персонажи"
-            android:gravity="center"
-            android:textSize="28sp"/>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
@@ -32,13 +26,6 @@
             tools:listitem="@layout/property_item"
             app:listData="@{viewModelOverview.properties}"/>
 
-        <!--<ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="false"
-            android:visibility="gone"/>-->
 
     </LinearLayout>
 

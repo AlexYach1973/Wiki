@@ -6,20 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.android.wiki.MainActivity
 import com.example.android.wiki.MyApplication
 import com.example.android.wiki.databinding.OverviewFragmentBinding
-import com.example.android.wiki.di.AppComponent
-import com.example.android.wiki.di.DaggerAppComponent
 import javax.inject.Inject
 
 class OverviewFragment : Fragment() {
 
-   /** Dagger */
+    /** Dagger */
     @Inject
-    lateinit var viewModelOverview : OverviewViewModel
+    lateinit var viewModelOverview: OverviewViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

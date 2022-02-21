@@ -18,16 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
 
-    //  Сохраняет экземпляр AppConponent,
-    //  чтобы фрагменты могли к нему подключиться
-//    lateinit var appComponent : AppComponent
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        /**  Просим Dagger внедрить наши зависимости  */
-        // Создаем экземпляр AppComponent
-//        appComponent = (application as MyApplication).appComponent.
-
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
