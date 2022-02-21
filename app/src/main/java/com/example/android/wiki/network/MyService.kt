@@ -14,9 +14,10 @@ import retrofit2.http.Query
 private const val BASE_URL = "https://rickandmortyapi.com/api/"
 
 // Создание экземпляра Moshi
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
+//private val moshi = Moshi.Builder()
+//    .add(KotlinJsonAdapterFactory())
+//    .build()
+
 
 // Создание объекта Retrofit
 private val retrofit = Retrofit.Builder()

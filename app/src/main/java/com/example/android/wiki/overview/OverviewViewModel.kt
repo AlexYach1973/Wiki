@@ -7,10 +7,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.android.wiki.network.ModelProperty
 import com.example.android.wiki.network.MyApi
+import com.example.android.wiki.network.MyService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class OverviewViewModel : ViewModel() {
+class OverviewViewModel @Inject constructor() : ViewModel() {
+
+//    @Inject
+    lateinit var myService : MyService /*= ()
+//        DaggerAppComponent.factory().create().inject(this)*/
+
+
+//    private val myService : MyService = ()
+//        DaggerAppComponent.factory().create().inject(this)
 
     // запускается навигация с аргументом
     private val _navigateToSelectedProperty = MutableLiveData<ModelProperty>()
@@ -33,6 +43,9 @@ class OverviewViewModel : ViewModel() {
 
         /**  Используем RxJava  */
         val getModelResponse = MyApi.retrofitService.getProperties()
+
+        // Dagger
+//        val getModelResponse = myService.getProperties()
 
 //        Log.d("myLogs", "ModelResponse: $getModelResponse")
 

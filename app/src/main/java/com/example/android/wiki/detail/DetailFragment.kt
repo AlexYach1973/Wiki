@@ -1,21 +1,35 @@
 package com.example.android.wiki.detail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import com.example.android.wiki.MyApplication
 import com.example.android.wiki.databinding.DetailFragmentBinding
+import javax.inject.Inject
+
 
 class DetailFragment : Fragment() {
+
+   /** Dagger */
+    @Inject
+    lateinit var detailViewModel: DetailViewModel
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as MyApplication).appComponent.inject(this)
+    }
+    /** ****** */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        val application = requireNotNull(activity).application
+        // Потому-что Dagger
+//        val detailViewModel = ViewModelProvider(this)[DetailViewModel::class.java]
 
         val binding = DetailFragmentBinding.inflate(inflater)
 
@@ -27,13 +41,9 @@ class DetailFragment : Fragment() {
         val mProperty = DetailFragmentArgs.fromBundle(requireArguments())
             .selectedProperty
 
-        // ViewModelFactory
-        val viewModelFactory = DetailViewModelFactory(mProperty, application)
+        detailViewModel.setProperty(mProperty)
 
-        // ViewModel
-        binding.viewModelDetail =
-            ViewModelProvider(this, viewModelFactory)[DetailViewModel::class.java]
-
+        binding.viewModelDetail = detailViewModel
 
         return binding.root
     }

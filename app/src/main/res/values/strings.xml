@@ -6,7 +6,7 @@
 <!--    Start Fragment-->
     <string name="task"> Задача: \nСоздать Android приложение wiki персонажей вселенной
         мультсериала Rick &amp; Morty с использованием публичного API. \nИспользовать:
-        Язык Kotlin, RxKotlin, LiveData, Navigation Component, Retrofit,
+        Язык Kotlin, Dagger, RxKotlin, LiveData, Navigation Component, Retrofit,
 MVVM Single Activity, DataBinding</string>
 
 <!--    OverView fragment-->
